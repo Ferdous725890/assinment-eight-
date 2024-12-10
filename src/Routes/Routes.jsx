@@ -14,53 +14,6 @@ import Gadget from "../Components/Gadget";
 
 
 
-// const router = createBrowserRouter([
-//     {
-//       path: "/",
-//       element: <Main></Main>,
-//       errorElement:<Page404></Page404>,
-//       children:[ 
-        
-//        { 
-//         path:'/',
-//         element:<Home></Home>,
-//         children:[
-//           {
-//             path:'/category/:category',
-//             element:<HomeTow></HomeTow>,
-//             loader:() =>fetch('../Gadgets.json'),
-//           }
-//         ]
-        
-//        },
-      
-//        {
-//         path: "/gadget/:productId", 
-//         element: <GadgetDetails/>,
-//         loader:() =>fetch('../Gadgets.json')
-//        },
-//        {
-//         path:'/statistics',
-//         element:<Statistics></Statistics>,
-//         loader:() =>fetch('../Gadgets.json')
-//        },
-//        {
-//         path:'/dashboard',
-//         element:<Dashboard></Dashboard>
-//        }, 
-//        {
-//         path:'/',
-//         element:<Categoryes></Categoryes>
-//        },
-//        {
-//         path:'/login',
-//         element:<LoginPage></LoginPage>
-//        },
-       
-       
-//       ]
-//     },
-//   ]);
 
 const router = createBrowserRouter([
   {
