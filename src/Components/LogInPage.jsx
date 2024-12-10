@@ -1,52 +1,81 @@
+import React, { useState, useContext } from "react";
+import { Helmet } from "react-helmet-async";
+import toast, { Toaster } from "react-hot-toast";
+import { AuthContext } from "./Authprovidder";
 
-import React, { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
+const RegisterPage = () => {
 
-const LoginPage = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const {userRejister} = useContext(AuthContext)
 
-  const handleSubmit = (e) => {
+
+
+
+  const handleRegister = async (e) => {
     e.preventDefault();
-   
-    alert('Login submitted');
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value
+    console.log(email, password, "email and password ");
+    
+
+
+    userRejister(email, password)
+    .then((result) => {
+       console.log(result.user);
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorMessage, errorCode);
+      });
+
+
   };
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
-       <Helmet>
-            <title>LogIn</title>
-        </Helmet>
+      <Helmet>
+        <title>Register</title>
+      </Helmet>
+      <Toaster position="top-center" reverseOrder={false} />
       <div className="bg-white rounded-lg shadow-lg p-8 w-80">
-        <h2 className="text-center text-2xl font-semibold text-[#9538E2] mb-6">Login</h2>
-        <form onSubmit={handleSubmit}>
+        <h2 className="text-center text-2xl font-semibold text-[#9538E2] mb-6">
+          Register
+        </h2>
+        <form onSubmit={handleRegister}>
           <div className="mb-4">
-            <label htmlFor="email" className="block text-sm text-gray-700 required:">Email</label>
+            <label htmlFor="email" className="block text-sm text-gray-700">
+              Email
+            </label>
             <input
               type="email"
               id="email"
               placeholder="Enter your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+          
+            name="email"
               className="w-full p-3 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#9538E2]"
+              required
             />
           </div>
           <div className="mb-6">
-            <label htmlFor="password" className="block text-sm text-gray-700 required: ">Password</label>
+            <label htmlFor="password" className="block text-sm text-gray-700">
+              Password
+            </label>
             <input
               type="password"
               id="password"
               placeholder="Enter your password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+          
+            name="password"
               className="w-full p-3 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#9538E2]"
+              required
             />
           </div>
           <button
             type="submit"
             className="w-full py-3 bg-[#9538E2] text-white font-semibold rounded-md hover:bg-[#7a2cb0] focus:outline-none focus:ring-2 focus:ring-[#9538E2]"
           >
-            Login
+            Register
           </button>
         </form>
       </div>
@@ -54,4 +83,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default RegisterPage;
