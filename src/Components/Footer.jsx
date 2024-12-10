@@ -8,8 +8,8 @@ const Footer = () => {
                 <p className="text-sm font-light">Leading the way in cutting-edge technology and innovation.</p>
             </div>
              <hr />
-            <footer className="footer gird grid-cols-3 bg-white text-neutral-content p-10  ">
-                <nav className="ml-24">
+            <footer className="footer gird md:grid-cols-3 bg-white text-neutral-content p-10  ">
+                <nav className=" pl-5 md:ml-24">
                     <h6 className=" text-[#000000] footer-title">Services</h6>
 
                     <a  className="text-[#5c5874] link link-hover">Product Support</a>
@@ -18,7 +18,7 @@ const Footer = () => {
                     <a  className="text-[#5c5874] link link-hover">Returns</a>
 
                 </nav>
-                <nav className="ml-24">
+                <nav className=" pl-5 md:ml-24">
                     <h6 className=" text-[#000000] footer-title">Company</h6>
                     <a className=" text-[#5c5874] link link-hover">About us</a>
                     <a className=" text-[#5c5874] link link-hover">Contact</a>
@@ -26,7 +26,7 @@ const Footer = () => {
 
                 </nav>
 
-                <nav className="ml-24">
+                <nav className=" pl-5 md:ml-24">
                     <h6 className=" text-[#000000] footer-title">Legal</h6>
                     <a className=" text-[#5c5874] link link-hover">Terms of Service</a>
                     <a className=" text-[#5c5874] link link-hover">Privacy Policy</a>
